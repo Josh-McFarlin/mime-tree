@@ -1,5 +1,11 @@
 # mime-tree
 
+![](https://badgen.net/npm/v/mime-tree)
+![](https://badgen.net/npm/license/mime-tree)
+![](https://badgen.net/npm/types/mime-tree)
+![](https://badgen.net/bundlephobia/min/mime-tree)
+![](https://badgen.net/npm/dt/mime-tree)
+
 ## 👋 Intro
 
 A helper for quickly determining the file type of a buffer.

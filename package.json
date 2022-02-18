@@ -4,6 +4,7 @@
   "description": "A helper for quickly determining the file type of a buffer",
   "author": "Josh McFarlin <josh@mcfarl.in>",
   "license": "MIT",
+  "sideEffects": false,
   "keywords": [
     "mime type",
     "mime",
