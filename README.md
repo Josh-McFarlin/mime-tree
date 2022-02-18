@@ -4,6 +4,9 @@
 
 A helper for quickly determining the file type of a buffer.
 
+This library is pure JavaScript, any can run in Node, the browser, or anywhere else JavaScript runs.
+This library is exported in CommonJS and ES Modules.
+
 Compared to other libraries that iterate through multiple arrays to find the mime type,
 this helper detects mime type by looping through a single object.
 
