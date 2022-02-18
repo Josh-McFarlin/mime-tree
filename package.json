@@ -1,6 +1,6 @@
 {
   "name": "mime-tree",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A helper for quickly determining the file type of a buffer",
   "author": "Josh McFarlin <josh@mcfarl.in>",
   "license": "MIT",
