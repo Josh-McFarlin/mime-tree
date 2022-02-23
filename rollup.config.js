@@ -3,11 +3,13 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
 import { terser } from "rollup-plugin-terser";
 import virtual from "@rollup/plugin-virtual";
-import compiledTree from "./src/tree";
+import { mimeTree, offsets } from "./src/tree";
 
 const plugins = [
   virtual({
-    "src/tree": `export default ${JSON.stringify(compiledTree)}`,
+    "src/tree": `export const mimeTree = ${JSON.stringify(
+      mimeTree
+    )}; export const offsets = ${JSON.stringify(offsets)};`,
   }),
   typescript({
     useTsconfigDeclarationDir: true,

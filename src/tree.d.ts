@@ -1,5 +1,4 @@
 import type { MimeTree } from "./types";
 
-const tree: MimeTree;
-
-export default tree;
+export const offsets: number[];
+export const mimeTree: Record<number, MimeTree>;
