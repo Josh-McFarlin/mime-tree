@@ -57,19 +57,20 @@ const deepSet = (obj, path, value) => {
   o[a[0]] = value;
 };
 
-const padStart = (arr, pad) =>
-  pad === 0 ? arr : new Array(pad).fill(0).concat(arr);
+const mimeTree = {};
+const offsets = [];
 
-const generateTree = () => {
-  const tree = {};
+mimeMagicNums.forEach((type) => {
+  if (!Object.prototype.hasOwnProperty.call(mimeTree, type.offset)) {
+    mimeTree[type.offset] = {};
+    offsets.push(type.offset);
+  }
 
-  mimeMagicNums.forEach((type) => {
-    deepSet(tree, padStart(type.magic, type.offset), type.type);
-  });
+  const offsetTree = mimeTree[type.offset];
 
-  return tree;
-};
+  deepSet(offsetTree, type.magic, type.type);
+});
 
-const tree = generateTree();
+offsets.sort();
 
-export default tree;
+export { mimeTree, offsets };

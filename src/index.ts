@@ -1,4 +1,4 @@
-import mimeTree from "./tree";
+import { mimeTree, offsets } from "./tree";
 import { MimeType } from "./types";
 
 const mimeFromBuffer = (buffer: Uint8Array): MimeType => {
@@ -6,15 +6,17 @@ const mimeFromBuffer = (buffer: Uint8Array): MimeType => {
     throw new Error("Buffer is not a valid image!");
   }
 
-  let pos = mimeTree;
-  for (let i = 0; i < 12; i += 1) {
-    const num = buffer[i];
-    if (typeof pos !== "object") {
-      return pos;
-    } else if (Object.prototype.hasOwnProperty.call(pos, num)) {
-      pos = pos[num];
-    } else {
-      break;
+  for (const startIndex of offsets) {
+    let pos = mimeTree[startIndex];
+    for (let i = startIndex; i <= 12; i += 1) {
+      const num = buffer[i];
+      if (typeof pos !== "object") {
+        return pos;
+      } else if (Object.prototype.hasOwnProperty.call(pos, num)) {
+        pos = pos[num];
+      } else {
+        break;
+      }
     }
   }
 
